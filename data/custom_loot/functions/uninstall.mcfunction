@@ -7,4 +7,6 @@
 scoreboard objectives remove cl_temp
 scoreboard objectives remove cl_health
 scoreboard objectives remove cl_req_health
-scoreboard objectives remove cl_damage
+scoreboard objectives remove cl_damage
+scoreboard objectives remove cl_killed_wither
+scoreboard objectives remove cl_killed_ed

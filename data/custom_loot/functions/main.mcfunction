@@ -8,5 +8,9 @@ execute unless score custom_loot installed_packs matches 1 run scoreboard player
 execute as @e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=!cl_init] at @s run function custom_loot:init_entity
 execute as @e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=cl_init] at @s store result score @s cl_health run data get entity @s Health
 execute as @e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=cl_init] at @s if score @s cl_health <= @s cl_req_health run function custom_loot:death
+execute as @a[scores={cl_killed_wither=1..}] at @s run function #custom_loot:killer/wither
+execute as @a[scores={cl_killed_wither=1..}] at @s run scoreboard players reset @s cl_killed_wither
+execute as @a[scores={cl_killed_ed=1..}] at @s run function #custom_loot:killer/ender_dragon
+execute as @a[scores={cl_killed_ed=1..}] at @s run scoreboard players reset @s cl_killed_ed
 execute as @a[scores={cl_damage=1..}] run scoreboard players reset @s cl_damage
 scoreboard players reset * cl_temp

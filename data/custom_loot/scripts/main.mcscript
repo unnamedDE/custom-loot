@@ -16,6 +16,15 @@ asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender
   }
 }
 
+asat(@a[scores={cl_killed_wither=1..}]) {
+  /function #custom_loot:killer/wither
+  /scoreboard players reset @s cl_killed_wither
+}
+asat(@a[scores={cl_killed_ed=1..}]) {
+  /function #custom_loot:killer/ender_dragon
+  /scoreboard players reset @s cl_killed_ed
+}
+
 as(@a[scores={cl_damage=1..}]) {
   /scoreboard players reset @s cl_damage
 }
