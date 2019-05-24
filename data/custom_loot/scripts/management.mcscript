@@ -1,0 +1,6 @@
+#file: ./uninstall
+
+/scoreboard objectives remove cl_temp
+/scoreboard objectives remove cl_health
+/scoreboard objectives remove cl_req_health
+/scoreboard objectives remove cl_damage

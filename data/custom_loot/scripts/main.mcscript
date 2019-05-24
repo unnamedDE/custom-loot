@@ -1,0 +1,22 @@
+
+#file: ./main
+// here goes your main content
+// executes 20 times a second
+
+/execute unless score custom_loot installed_packs matches 1 run scoreboard players set custom_loot installed_packs 1
+
+asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=!cl_init]) {
+  /function custom_loot:init_entity
+}
+
+asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=cl_init]) {
+  /execute store result score @s cl_health run data get entity @s Health
+  if('score @s cl_health <= @s cl_req_health') {
+    /function custom_loot:death
+  }
+}
+
+as(@a[scores={cl_damage=1..}]) {
+  /scoreboard players reset @s cl_damage
+}
+/scoreboard players reset * cl_temp
