@@ -5,7 +5,7 @@
 
 /execute unless score custom_loot installed_packs matches 1 run scoreboard players set custom_loot installed_packs 1
 
-asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=!cl_init]) {
+asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=!cl_init]), if('score #on cl_health matches 1..') {
   /function custom_loot:init_entity
 }
 

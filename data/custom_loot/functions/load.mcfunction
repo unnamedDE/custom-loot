@@ -8,7 +8,9 @@ function custom_loot:mcscript/load
 
 scoreboard objectives add cl_temp dummy
 scoreboard objectives add cl_health dummy
+scoreboard objectives add cl_health_old dummy
 scoreboard objectives add cl_req_health dummy
 scoreboard objectives add cl_damage minecraft.custom:minecraft.damage_dealt "Damge dealt"
 scoreboard objectives add cl_killed_wither minecraft.killed:minecraft.wither "Killed Wither"
-scoreboard objectives add cl_killed_ed minecraft.killed:minecraft.ender_dragon "Killed Ender Dragon"
+scoreboard objectives add cl_killed_ed minecraft.killed:minecraft.ender_dragon "Killed Ender Dragon"
+scoreboard players set #on cl_health 1

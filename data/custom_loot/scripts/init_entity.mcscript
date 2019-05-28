@@ -1,5 +1,6 @@
 #file: ./init_entity
 
+/execute store result score @s cl_health_old run data get entity @s Health
 /execute store result score @s cl_health run data get entity @s Health
 /scoreboard players set @s cl_req_health 1024
 /scoreboard players operation @s cl_req_health -= @s cl_health

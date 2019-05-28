@@ -1,8 +1,21 @@
 #file: ./uninstall
 
+asat(@e[tag=cl_init]) {
+  /function custom_loot:deactivate
+}
+
 /scoreboard objectives remove cl_temp
 /scoreboard objectives remove cl_health
+/scoreboard objectives remove cl_health_old
 /scoreboard objectives remove cl_req_health
 /scoreboard objectives remove cl_damage
 /scoreboard objectives remove cl_killed_wither
 /scoreboard objectives remove cl_killed_ed
+
+#file: ./deactivate
+
+/scoreboard players set #on cl_health 0
+
+/execute store result entity @s Health float 1 run scoreboard players get @s cl_health_old
+
+/tag @s remove cl_init
