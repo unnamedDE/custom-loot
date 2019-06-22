@@ -17,6 +17,8 @@ modal killed(entity) {
   }
 }
 
+/function #custom_loot:killed
+
 killed('bat')
 killed('blaze')
 killed('cat')
@@ -88,6 +90,8 @@ modal killer(entity) {
     /function #custom_loot:killer/$(entity)
   }
 }
+
+/function #custom_loot:killer
 
 killer('bat')
 killer('blaze')
