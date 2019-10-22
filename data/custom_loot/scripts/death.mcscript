@@ -27,8 +27,12 @@ killed('chicken')
 killed('cod')
 killed('cow')
 killed('creeper')
+//killed('dog')
+if('entity @s[type=minecraft:wolf,nbt=!{OwnerUUID:""}]') {
+  /function #custom_loot:killed/dog
+}
 killed('dolphin')
-killed('donkey')
+//killed('donkey')
 killed('drowned')
 killed('elder_guardian')
 //killed('ender_dragon')
@@ -39,14 +43,14 @@ killed('fox')
 killed('ghast')
 killed('giant')
 killed('guardian')
-killed('horse')
+//killed('horse')
 killed('husk')
 killed('illusioner')
 killed('iron_golem')
 killed('llama')
 killed('magma_cube')
 killed('mooshroom')
-killed('mule')
+//killed('mule')
 killed('ocelot')
 killed('panda')
 killed('parrot')
@@ -61,7 +65,7 @@ killed('salmon')
 killed('shulker')
 killed('silverfish')
 killed('skeleton')
-killed('skeleton_horse')
+//killed('skeleton_horse')
 killed('slime')
 killed('snow_golem')
 killed('spider')
@@ -77,9 +81,17 @@ killed('wandering_trader')
 killed('witch')
 //killed('wither')
 killed('wither_skeleton')
-killed('wolf')
+//killed('wolf')
+if('entity @s[type=minecraft:wolf]') {
+  if('entity @s[nbt={OwnerUUID:""}]') {
+    /function #custom_loot:killed/wolf
+  }
+}
+if('entity @s[type=minecraft:wolf]') {
+  /function #custom_loot:killed/wolf-all
+}
 killed('zombie')
-killed('zombie_horse')
+//killed('zombie_horse')
 killed('zombie_pigman')
 killed('zombie_villager')
 
@@ -101,8 +113,12 @@ killer('chicken')
 killer('cod')
 killer('cow')
 killer('creeper')
+//killer('dog')
+if('entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf,nbt=!{OwnerUUID:""}]') {
+  /function #custom_loot:killer/dog
+}
 killer('dolphin')
-killer('donkey')
+//killer('donkey')
 killer('drowned')
 killer('elder_guardian')
 //killer('ender_dragon')
@@ -113,14 +129,14 @@ killer('fox')
 killer('ghast')
 killer('giant')
 killer('guardian')
-killer('horse')
+//killer('horse')
 killer('husk')
 killer('illusioner')
 killer('iron_golem')
 killer('llama')
 killer('magma_cube')
 killer('mooshroom')
-killer('mule')
+//killer('mule')
 killer('ocelot')
 killer('panda')
 killer('parrot')
@@ -135,7 +151,7 @@ killer('salmon')
 killer('shulker')
 killer('silverfish')
 killer('skeleton')
-killer('skeleton_horse')
+//killer('skeleton_horse')
 killer('slime')
 killer('snow_golem')
 killer('spider')
@@ -151,8 +167,18 @@ killer('wandering_trader')
 killer('witch')
 //killer('wither')
 killer('wither_skeleton')
-killer('wolf')
+//killer('wolf')
+as(@e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf]) {
+  if('entity @s[nbt={OwnerUUID:""}]') {
+    as(@p) {
+      /function #custom_loot:killed/dog
+    }
+  }
+}
+if('entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf]') {
+  /function #custom_loot:killer/wolf-all
+}
 killer('zombie')
-killer('zombie_horse')
+//killer('zombie_horse')
 killer('zombie_pigman')
 killer('zombie_villager')

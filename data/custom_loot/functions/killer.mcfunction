@@ -6,7 +6,6 @@
 ######
 
 function #custom_loot:killer
-
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:bat] run function #custom_loot:killer/bat
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:blaze] run function #custom_loot:killer/blaze
@@ -23,9 +22,9 @@ execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:cow] run fu
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:creeper] run function #custom_loot:killer/creeper
 
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:dolphin] run function #custom_loot:killer/dolphin
+execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf,nbt=!{OwnerUUID:""}] run function #custom_loot:killer/dog
 
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:donkey] run function #custom_loot:killer/donkey
+execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:dolphin] run function #custom_loot:killer/dolphin
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:drowned] run function #custom_loot:killer/drowned
 
@@ -45,8 +44,6 @@ execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:giant] run 
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:guardian] run function #custom_loot:killer/guardian
 
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:horse] run function #custom_loot:killer/horse
-
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:husk] run function #custom_loot:killer/husk
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:illusioner] run function #custom_loot:killer/illusioner
@@ -58,8 +55,6 @@ execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:llama] run 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:magma_cube] run function #custom_loot:killer/magma_cube
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:mooshroom] run function #custom_loot:killer/mooshroom
-
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:mule] run function #custom_loot:killer/mule
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:ocelot] run function #custom_loot:killer/ocelot
 
@@ -89,8 +84,6 @@ execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:silverfish]
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:skeleton] run function #custom_loot:killer/skeleton
 
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:skeleton_horse] run function #custom_loot:killer/skeleton_horse
-
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:slime] run function #custom_loot:killer/slime
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:snow_golem] run function #custom_loot:killer/snow_golem
@@ -119,11 +112,10 @@ execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:witch] run 
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wither_skeleton] run function #custom_loot:killer/wither_skeleton
 
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf] run function #custom_loot:killer/wolf
+execute as @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf] if entity @s[nbt={OwnerUUID:""}] as @p run function #custom_loot:killed/dog
+execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:wolf] run function #custom_loot:killer/wolf-all
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:zombie] run function #custom_loot:killer/zombie
-
-execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:zombie_horse] run function #custom_loot:killer/zombie_horse
 
 execute if entity @e[limit=1,sort=nearest,tag=cl_dead,type=minecraft:zombie_pigman] run function #custom_loot:killer/zombie_pigman
 

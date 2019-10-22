@@ -6,7 +6,6 @@
 ######
 
 function #custom_loot:killed
-
 execute if entity @s[type=minecraft:bat] run function #custom_loot:killed/bat
 
 execute if entity @s[type=minecraft:blaze] run function #custom_loot:killed/blaze
@@ -23,9 +22,9 @@ execute if entity @s[type=minecraft:cow] run function #custom_loot:killed/cow
 
 execute if entity @s[type=minecraft:creeper] run function #custom_loot:killed/creeper
 
-execute if entity @s[type=minecraft:dolphin] run function #custom_loot:killed/dolphin
+execute if entity @s[type=minecraft:wolf,nbt=!{OwnerUUID:""}] run function #custom_loot:killed/dog
 
-execute if entity @s[type=minecraft:donkey] run function #custom_loot:killed/donkey
+execute if entity @s[type=minecraft:dolphin] run function #custom_loot:killed/dolphin
 
 execute if entity @s[type=minecraft:drowned] run function #custom_loot:killed/drowned
 
@@ -45,8 +44,6 @@ execute if entity @s[type=minecraft:giant] run function #custom_loot:killed/gian
 
 execute if entity @s[type=minecraft:guardian] run function #custom_loot:killed/guardian
 
-execute if entity @s[type=minecraft:horse] run function #custom_loot:killed/horse
-
 execute if entity @s[type=minecraft:husk] run function #custom_loot:killed/husk
 
 execute if entity @s[type=minecraft:illusioner] run function #custom_loot:killed/illusioner
@@ -58,8 +55,6 @@ execute if entity @s[type=minecraft:llama] run function #custom_loot:killed/llam
 execute if entity @s[type=minecraft:magma_cube] run function #custom_loot:killed/magma_cube
 
 execute if entity @s[type=minecraft:mooshroom] run function #custom_loot:killed/mooshroom
-
-execute if entity @s[type=minecraft:mule] run function #custom_loot:killed/mule
 
 execute if entity @s[type=minecraft:ocelot] run function #custom_loot:killed/ocelot
 
@@ -89,8 +84,6 @@ execute if entity @s[type=minecraft:silverfish] run function #custom_loot:killed
 
 execute if entity @s[type=minecraft:skeleton] run function #custom_loot:killed/skeleton
 
-execute if entity @s[type=minecraft:skeleton_horse] run function #custom_loot:killed/skeleton_horse
-
 execute if entity @s[type=minecraft:slime] run function #custom_loot:killed/slime
 
 execute if entity @s[type=minecraft:snow_golem] run function #custom_loot:killed/snow_golem
@@ -119,12 +112,13 @@ execute if entity @s[type=minecraft:witch] run function #custom_loot:killed/witc
 
 execute if entity @s[type=minecraft:wither_skeleton] run function #custom_loot:killed/wither_skeleton
 
-execute if entity @s[type=minecraft:wolf] run function #custom_loot:killed/wolf
+execute if entity @s[type=minecraft:wolf] if entity @s[nbt={OwnerUUID:""}] run function #custom_loot:killed/wolf
+
+execute if entity @s[type=minecraft:wolf] run function #custom_loot:killed/wolf-all
 
 execute if entity @s[type=minecraft:zombie] run function #custom_loot:killed/zombie
-
-execute if entity @s[type=minecraft:zombie_horse] run function #custom_loot:killed/zombie_horse
 
 execute if entity @s[type=minecraft:zombie_pigman] run function #custom_loot:killed/zombie_pigman
 
 execute if entity @s[type=minecraft:zombie_villager] run function #custom_loot:killed/zombie_villager
+

@@ -12,3 +12,8 @@ scoreboard objectives remove cl_req_health
 scoreboard objectives remove cl_damage
 scoreboard objectives remove cl_killed_wither
 scoreboard objectives remove cl_killed_ed
+scoreboard objectives remove cl_killed_ho
+scoreboard objectives remove cl_killed_do
+scoreboard objectives remove cl_killed_mu
+scoreboard objectives remove cl_killed_sh
+scoreboard objectives remove cl_killed_zh

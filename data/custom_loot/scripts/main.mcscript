@@ -5,11 +5,14 @@
 
 /execute unless score custom_loot installed_packs matches 1 run scoreboard players set custom_loot installed_packs 1
 
-asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=!cl_init]), if('score #on cl_health matches 1..') {
+asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,type=!minecraft:horse,type=!minecraft:donkey,type=!minecraft:mule,type=!minecraft:skeleton_horse,type=!minecraft:zombie_horse,tag=!cl_init]), if('score #on cl_health matches 1..') {
   /function custom_loot:init_entity
 }
+asat(@e[type=minecraft:wolf,tag=!cl_dog,tag=cl_init,nbt=!{OwnerUUID:""}]), if('score #on cl_health matches 1..') {
+  /function custom_loot:init_dog
+}
 
-asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=cl_init]) {
+asat(@e[type=!#unnamedde:non-living,type=!minecraft:player,type=!minecraft:ender_dragon,type=!minecraft:wither,tag=cl_init,tag=!cl_dog]) {
   /execute store result score @s cl_health run data get entity @s Health
   if('score @s cl_health <= @s cl_req_health') {
     /function custom_loot:death
@@ -23,6 +26,26 @@ asat(@a[scores={cl_killed_wither=1..}]) {
 asat(@a[scores={cl_killed_ed=1..}]) {
   /function #custom_loot:killer/ender_dragon
   /scoreboard players reset @s cl_killed_ed
+}
+asat(@a[scores={cl_killed_ho=1..}]) {
+  /function #custom_loot:killer/horse
+  /scoreboard players reset @s cl_killed_ho
+}
+asat(@a[scores={cl_killed_do=1..}]) {
+  /function #custom_loot:killer/donkey
+  /scoreboard players reset @s cl_killed_do
+}
+asat(@a[scores={cl_killed_mu=1..}]) {
+  /function #custom_loot:killer/mule
+  /scoreboard players reset @s cl_killed_mu
+}
+asat(@a[scores={cl_killed_sh=1..}]) {
+  /function #custom_loot:killer/skeleton_horse
+  /scoreboard players reset @s cl_killed_sh
+}
+asat(@a[scores={cl_killed_zh=1..}]) {
+  /function #custom_loot:killer/zombie_horse
+  /scoreboard players reset @s cl_killed_zh
 }
 
 as(@a[scores={cl_damage=1..}]) {
